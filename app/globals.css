@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-burgundy: #6D0F2B;
+  --color-burgundy-light: #8A1538;
+  --color-burgundy-dark: #4A0A1D;
+  --color-burgundy-bg: #F8EEF1;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --background: #FAFAFB;
+  --foreground: #1C1C1E;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +22,71 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6D0F2B;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8A1538;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Selection color */
+::selection {
+  background: #6D0F2B;
+  color: white;
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+@keyframes cat-bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(-5deg); }
+  75% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes cat-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+@keyframes cat-pounce {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(0.9) translateY(-20px); }
+}
+
+.animate-cat-bounce {
+  animation: cat-bounce 2s ease-in-out infinite;
+}
+
+.animate-cat-wiggle {
+  animation: cat-wiggle 1.5s ease-in-out infinite;
+}
+
+.animate-cat-pounce {
+  animation: cat-pounce 1.8s ease-in-out infinite;
 }
